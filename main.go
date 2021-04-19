@@ -12,5 +12,10 @@ func main() {
 		fmt.Println("Usage: hashzip ZIP_FILE")
 		os.Exit(1)
 	}
-	fmt.Println(dirhash.HashZip(os.Args[1], dirhash.DefaultHash))
+	sum, err := dirhash.HashZip(os.Args[1], dirhash.DefaultHash)
+	if err != nil {
+		fmt.Printf("Error: %v", err)
+		os.Exit(1)
+	}
+	fmt.Println(sum)
 }
