@@ -8,5 +8,9 @@ import (
 )
 
 func main() {
-	fmt.Println(dirhash.HashZip(os.Args[0], dirhash.DefaultHash))
+	if len(os.Args) != 2 {
+		fmt.Println("Usage: hashzip ZIP_FILE")
+		os.Exit(1)
+	}
+	fmt.Println(dirhash.HashZip(os.Args[1], dirhash.DefaultHash))
 }
